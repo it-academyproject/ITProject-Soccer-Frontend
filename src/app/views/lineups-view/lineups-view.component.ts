@@ -9,15 +9,7 @@ import { CdkDragDrop } from '@angular/cdk/drag-drop';
 })
 // export class LineupsViewComponent implements OnInit {
 export class LineupsViewComponent {
-  // listOne = ['A - 1', 'A - 2', 'A - 3', 'A - 4'];
-  // listTwo = ['B - 1', 'B - 2', 'B - 3', 'B - 4'];
-
   constructor() {}
-
-  // drop(event: CdkDragDrop<string[]>) {
-  //   console.log('event: ', event);
-  // }
-
   dragPosition = { x: 0, y: 0 };
 
   changePosition() {
@@ -27,5 +19,18 @@ export class LineupsViewComponent {
     };
   }
 
-  // ngOnInit(): void {}
+  ngOnInit(): void {}
+  // }
+
+  players = [
+    {
+      title: 'Player',
+      poster: 'assets/Images/Icons/player-1.png',
+    },
+  ];
+  // tslint:enable:max-line-length
+
+  drop(event: CdkDragDrop<{ title: string; poster: string }[]>) {
+    moveItemInArray(this.players, event.previousIndex, event.currentIndex);
+  }
 }

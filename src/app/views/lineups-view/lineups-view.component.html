@@ -6,13 +6,19 @@
     >
       <div class="example-box" cdkDrag [cdkDragFreeDragPosition]="dragPosition">
         <div class="player-top">
-          <p>Missi</p>
-          <p>3-1-2</p>
-        </div>
-        <br />
-        <div class="player-bottom">
+          <p>Name</p>
           <button class="action btn btn-secondary btn-sm">Save</button>
+        </div>
+        <div class="player-bottom">
+          <p>3-1-2</p>
           <img class="action" src="assets/Images/Icons/bin.png" alt="Bin" />
+        </div>
+      </div>
+
+      <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let player of players" cdkDrag>
+          {{ player.title }}
+          <img *cdkDragPreview [src]="player.poster" [alt]="player.title" />
         </div>
       </div>
 
