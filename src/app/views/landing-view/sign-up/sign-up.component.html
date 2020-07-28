@@ -1,0 +1,98 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-8 mx-auto">
+      <div class="card w-50 login-form mx-auto mt-4">
+        <div class="card-body">
+          <h3 class="card-title text-center">Sign up</h3>
+          <div class="card-text">
+            <form id="login-form" [formGroup]="form" (ngSubmit)="sign()">
+              <div class="form-group">
+                <input
+                  type="name"
+                  class="form-control form-control-sm"
+                  placeholder="Name"
+                  formControlName="name"
+                  [class.is-invalid]="nameNotValid"
+                />
+                <small *ngIf="nameNotValid" class="text-danger"
+                  >Enter your name</small
+                >
+              </div>
+              <div class="form-group">
+                <input
+                  type="surname"
+                  class="form-control form-control-sm"
+                  placeholder="Surname"
+                  formControlName="surname"
+                  [class.is-invalid]="surnameNotValid"
+                />
+                <small *ngIf="surnameNotValid" class="text-danger"
+                  >Enter your surname</small
+                >
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control form-control-sm"
+                  placeholder="E-mail Address"
+                  formControlName="email"
+                  [class.is-invalid]="emailNotValid"
+                />
+                <small *ngIf="emailNotValid" class="text-danger"
+                  >Enter a valid e-mail</small
+                >
+              </div>
+              <div class="form-group">
+                <input
+                  type="password"
+                  placeholder="Password"
+                  class="form-control form-control-sm mb-2"
+                  formControlName="password"
+                  [class.is-invalid]="passwordNotValid"
+                />
+                <small *ngIf="passwordNotValid" class="text-danger"
+                  >Password must be between 8 to 20 maximum characters</small
+                >
+              </div>
+              <div class="form-group">
+                <input
+                  type="password"
+                  placeholder="Confirm Password"
+                  class="form-control form-control-sm"
+                  formControlName="confirmPassword"
+                  [class.is-invalid]="confirmPasswordNotValid"
+                />
+                <small *ngIf="confirmPasswordNotValid" class="text-danger"
+                  >Password confirmation don't match</small
+                >
+              </div>
+              <div class="form-group">
+                <select
+                  name="country"
+                  class="form-control form-control-sm"
+                  formControlName="country"
+                  [class.is-invalid]="countryNotValid"
+                >
+                  <option
+                    *ngFor="let country of countries"
+                    [value]="country.code"
+                  >
+                    {{ country.name }}
+                  </option>
+                </select>
+              </div>
+
+              <button
+                id="submit-button"
+                type="submit"
+                class="btn btn-outline-warning btn-block rounded-pill"
+              >
+                Sign me up
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

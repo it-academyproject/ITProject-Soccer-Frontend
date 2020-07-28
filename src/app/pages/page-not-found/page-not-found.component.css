@@ -1,0 +1,32 @@
+.container {
+  margin-top: 15rem;
+  color: #fffdf9;
+}
+
+.container h1 {
+  font-size: 160px;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 20px;
+  background: url(/assets/Images/Landing/P3.jpg) center no-repeat;
+  -webkit-text-fill-color: transparent;
+  background-clip: border-box;
+  -webkit-background-clip: text;
+}
+
+.container a {
+  text-decoration: none;
+  background: #ffca3a;
+  color: #fffdf9;
+  padding: 12px 24px;
+  display: inline-block;
+  border-radius: 25px;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: 0.4s;
+}
+
+/* I think this color should change! */
+.container a:hover {
+  background: #7030a0;
+}
