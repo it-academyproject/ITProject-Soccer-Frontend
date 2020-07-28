@@ -24,7 +24,7 @@ export class LineupsViewComponent {
 
   players = [
     {
-      title: 'Player',
+      title: 'Name',
       poster: 'assets/Images/Icons/player-1.png',
     },
   ];
