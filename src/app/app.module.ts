@@ -15,6 +15,7 @@ import { ForgotPasswordComponent } from './views/landing-view/header/forgot-pass
 import { LineupsViewComponent } from './views/lineups-view/lineups-view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { LineupsElementComponent } from './views/lineups-view/lineups-element/lineups-element.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     HeaderComponent,
     ForgotPasswordComponent,
     LineupsViewComponent,
+    LineupsElementComponent,
   ],
   imports: [
     BrowserModule,

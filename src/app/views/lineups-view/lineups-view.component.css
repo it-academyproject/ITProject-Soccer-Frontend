@@ -4,54 +4,16 @@
   width: 100%;
 }
 
-.leftSide {
-  border: solid 1px #fffdf9;
-  display: flex;
-  flex-direction: column;
-}
-
-.player-top {
-  font-weight: 600;
-  margin-left: 2rem;
-  margin-right: 9rem;
-}
-.player-bottom {
-  margin-right: 3rem;
-  margin-left: 2rem;
-}
-
-.example-box,
-.example-list {
-  width: 97%;
-  height: 7rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 3px;
-  cursor: move;
-  min-height: 60px;
-  background: #fffdf9;
-  border-radius: 4px;
-  z-index: 1;
-  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
-  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-    0 1px 5px 0 rgba(0, 0, 0, 0.12);
-}
-
-.example-box:active {
-  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
-    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
-}
-
 .container {
   display: flex;
-  height: 70%;
-  padding: 15px;
+  height: 90%;
+  margin-top: 0;
+  padding: 10px;
 }
+
 .container div {
   border: 1px #fffdf9 solid;
   background: green;
-  padding: 10px;
 }
 .box-1 {
   flex: 1;
@@ -64,11 +26,6 @@
 }
 .box-4 {
   flex: 2;
-}
-
-img.player-1 {
-  flex-direction: column;
-  margin-top: 100%;
 }
 
 .player-role {

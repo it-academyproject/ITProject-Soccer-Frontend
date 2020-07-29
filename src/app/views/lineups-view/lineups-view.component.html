@@ -4,36 +4,7 @@
     <div
       class="leftSide d-flex justify-content-center align-items-center no-gutters"
     >
-      <div class="example-box" cdkDrag [cdkDragFreeDragPosition]="dragPosition">
-        <div class="player-top">
-          <p>Name</p>
-          <button class="action btn btn-secondary btn-sm">Save</button>
-        </div>
-        <div class="player-bottom">
-          <p>3-1-2</p>
-          <img class="action" src="assets/Images/Icons/bin.png" alt="Bin" />
-        </div>
-      </div>
-
-      <!-- 222 -->
-      <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let player of players" cdkDrag>
-          {{ player.title }}
-          <img *cdkDragPreview [src]="player.poster" [alt]="player.title" />
-        </div>
-      </div>
-
-      <!-- 333 -->
-      <div class="example-box" cdkDrag [cdkDragFreeDragPosition]="dragPosition">
-        <div class="player-top">
-          <p>Name</p>
-          <button class="action btn btn-secondary btn-sm">Save</button>
-        </div>
-        <div class="player-bottom">
-          <p>3-1-2</p>
-          <img class="action" src="assets/Images/Icons/bin.png" alt="Bin" />
-        </div>
-      </div>
+      <app-lineups-element></app-lineups-element>
 
       <!-- End -->
     </div>
@@ -90,7 +61,7 @@
         </div>
       </div>
     </div>
-    <div class="player-role text-light col-md-12">
+    <div class="player-role text-light">
       <div class="box-1">GoalKeeper</div>
       <div class="box-2">Defenders</div>
       <div class="box-3">Midfielders</div>
