@@ -1,0 +1,50 @@
+.rightSide {
+  height: 50vh;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .leftSide,
+  .rightSide {
+    height: 100vh;
+  }
+}
+.container {
+  display: flex;
+  height: 90%;
+  margin-top: 0;
+  padding: 10px;
+}
+
+.container div {
+  border: 1px #fffdf9 solid;
+  background: green;
+}
+.box-1 {
+  flex: 1;
+}
+.box-2 {
+  flex: 2;
+}
+.box-3 {
+  flex: 2;
+}
+.box-4 {
+  flex: 2;
+}
+
+.player-role {
+  margin-top: 0;
+  display: flex;
+  padding: 10px;
+}
+
+.player-role div {
+  text-align: center;
+  padding: 10px;
+}
+
+.player-role p {
+  font-size: 1.6rem;
+  color: #fffdf9;
+}
