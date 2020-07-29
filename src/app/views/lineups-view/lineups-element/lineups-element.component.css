@@ -1,0 +1,8 @@
+.lineupPlayer {
+  height: 100vh;
+  width: 100%;
+  padding: 10px;
+  border: solid 1px #fffdf9;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,14 +1,3 @@
-.leftSide {
-  height: 50vh;
-  width: 100%;
-}
-
-.leftSide {
-  border: solid 1px #fffdf9;
-  display: flex;
-  flex-direction: column;
-}
-
 .player-top {
   font-weight: 600;
   margin-left: 2rem;

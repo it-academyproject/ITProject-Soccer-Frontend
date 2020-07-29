@@ -1,18 +1,8 @@
-.rightSide {
-  height: 50vh;
-  width: 100%;
-}
-
-@media screen and (min-width: 768px) {
-  .leftSide,
-  .rightSide {
-    height: 100vh;
-  }
-}
 .container {
+  /* border: solid 1px #fffdf9; */
   display: flex;
-  height: 90%;
-  margin-top: 0;
+  height: 100%;
+  margin-top: 90px;
   padding: 10px;
 }
 
