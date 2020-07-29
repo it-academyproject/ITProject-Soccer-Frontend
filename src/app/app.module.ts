@@ -16,6 +16,10 @@ import { LineupsViewComponent } from './views/lineups-view/lineups-view.componen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { LineupsElementComponent } from './views/lineups-view/lineups-element/lineups-element.component';
+import { FieldComponent } from './views/lineups-view/field/field.component';
+import { PlayerComponent } from './views/lineups-view/field/player/player.component';
+import { HoverStaticsComponent } from './views/lineups-view/field/player/hover-statics/hover-statics.component';
+import { SectionFieldComponent } from './views/lineups-view/field/player/section-field/section-field.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +33,10 @@ import { LineupsElementComponent } from './views/lineups-view/lineups-element/li
     ForgotPasswordComponent,
     LineupsViewComponent,
     LineupsElementComponent,
+    FieldComponent,
+    PlayerComponent,
+    HoverStaticsComponent,
+    SectionFieldComponent,
   ],
   imports: [
     BrowserModule,
