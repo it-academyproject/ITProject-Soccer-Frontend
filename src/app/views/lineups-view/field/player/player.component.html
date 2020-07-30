@@ -28,3 +28,25 @@
     <img class="action" src="assets/Images/Icons/bin.png" alt="Bin" />
   </div>
 </div>
+
+<!-- 4 -->
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+  <div cdkDrag *ngFor="let player of players" class="item">
+    {{ player }}
+  </div>
+</div>
+
+<!-- 5 -->
+
+<div
+  class="example-list"
+  cdkDropList
+  #todoList="cdkDropList"
+  [cdkDropListData]="players"
+  [cdkDropListConnectedTo]="[]"
+  (cdkDropListDropped)="drop($event)"
+>
+  <div *ngFor="let player of players; index as i" cdkDrag>
+    {{ i + 1 }}. {{ player }}
+  </div>
+</div>
