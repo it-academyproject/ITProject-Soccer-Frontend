@@ -18,8 +18,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { LineupsElementComponent } from './views/lineups-view/lineups-element/lineups-element.component';
 import { FieldComponent } from './views/lineups-view/field/field.component';
 import { PlayerComponent } from './views/lineups-view/field/player/player.component';
-import { HoverStaticsComponent } from './views/lineups-view/field/player/hover-statics/hover-statics.component';
-import { SectionFieldComponent } from './views/lineups-view/field/player/section-field/section-field.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -35,8 +34,6 @@ import { SectionFieldComponent } from './views/lineups-view/field/player/section
     LineupsElementComponent,
     FieldComponent,
     PlayerComponent,
-    HoverStaticsComponent,
-    SectionFieldComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +44,7 @@ import { SectionFieldComponent } from './views/lineups-view/field/player/section
     HttpClientModule,
     BrowserAnimationsModule,
     DragDropModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

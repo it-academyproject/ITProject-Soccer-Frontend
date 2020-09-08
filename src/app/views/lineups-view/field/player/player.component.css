@@ -1,10 +1,10 @@
-.player-top {
+.player-left {
   font-weight: 600;
   margin-left: 2rem;
   margin-right: 9rem;
 }
 
-.player-bottom {
+.player-right {
   margin-right: 3rem;
   /* margin-left: 2rem; */
 }
@@ -17,7 +17,7 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 3px;
-  cursor: move;
+  /* cursor: move; */
   min-height: 60px;
   background: #fffdf9;
   border-radius: 4px;
@@ -36,4 +36,25 @@
 img.player-1 {
   flex-direction: column;
   margin-top: 100%;
+}
+
+/* expansion panel */
+/* .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+} */
+
+mat-expansion-panel {
+  color: black;
+  background: #fffdf9;
+}
+
+mat-expansion-panel .player-left {
+}
+
+mat-expansion-panel .player-right {
+  float: right;
+}
+
+mat-panel-title {
+  color: black;
 }
