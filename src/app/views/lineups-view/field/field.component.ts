@@ -3,13 +3,21 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-field',
   templateUrl: './field.component.html',
-  styleUrls: ['./field.component.css']
+  styleUrls: ['./field.component.css'],
 })
 export class FieldComponent implements OnInit {
+  // childData: string;
+  // parentMethod(data) {
+  //   this.childData = data;
+  // }
 
-  constructor() { }
+  // showLineUp1: boolean = false;
 
-  ngOnInit(): void {
-  }
+  constructor() {}
 
+  ngOnInit(): void {}
+
+  // toggleField() {
+  //   this.showLineUp1 = !this.showLineUp1;
+  // }
 }
