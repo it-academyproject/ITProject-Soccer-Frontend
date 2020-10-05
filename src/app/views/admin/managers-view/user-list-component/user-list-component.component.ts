@@ -14,7 +14,7 @@ export class UserListComponentComponent implements OnInit {
   search:SafeHtml;
   managers = null;
 
-  constructor(private sanitizer: DomSanitizer, private managersService: ManagersService) { }
+  constructor(private sanitizer: DomSanitizer, public managersService: ManagersService) { }
 
   ngOnInit() {
     this.managers = this.managersService.getManagers();
