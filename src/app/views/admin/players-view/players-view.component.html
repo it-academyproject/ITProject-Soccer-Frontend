@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="row justify-content-center mt-5">
+    <div class="col-8">
+      <table class="table table-hover table-dark">
+        <thead>
+          <tr>
+            <th *ngFor="let head of headers">
+              {{ head }}
+            </th>
+            <th scope="col">Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let player of player; let i = index">
+            <td>
+              {{ player.name }}
+            </td>
+            <td>
+              {{ player.team }}
+            </td>
+            <td>
+              <a [routerLink]="['admin/player/', i]"
+                ><img src="/assets/Images/trash.png"
+              /></a>
+              <a [routerLink]="['/admin/player/', i]" class="pl-2"
+                ><img src="/assets/Images/lups.png"
+              /></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-2">
+      <button class="btn btn-outline-warning btn-block rounded-pill">
+        New Player
+      </button>
+    </div>
+  </div>
+</div>

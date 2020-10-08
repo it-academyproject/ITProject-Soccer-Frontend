@@ -1,0 +1,32 @@
+  header,
+  nav {
+      background-color: black;
+      color: #fffdf9;
+  }
+  
+  .navbar-brand {
+      padding: 0px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #fffdf9;
+  }
+  
+  .academy {
+      font-size: 20px;
+      font-weight: 300;
+      color: #fffdf9;
+  }
+  
+  .user,
+  .right-header {
+      display: flex;
+      align-items: center;
+  }
+  
+  .user img {
+      width: 25px;
+  }
+  
+  .navbar .field span {
+      position: absolute;
+  }

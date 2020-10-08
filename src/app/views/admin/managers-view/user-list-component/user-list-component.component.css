@@ -1,0 +1,25 @@
+.table-wrapper {
+    height: 52vh;
+    overflow-y: auto;
+    position: relative;
+    border: 1px solid #FFFDF9;
+}
+
+td span {
+    margin-right: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.table-wrapper td a {
+    color: white;
+}
+
+.table-dark {
+    color: #FFFDF9;
+    background-color: #1b232c;
+}
+
+.table-dark td, .table-dark th, .table-dark thead th {
+    border-color: #FFFDF9;
+}

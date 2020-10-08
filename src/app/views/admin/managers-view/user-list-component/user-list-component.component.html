@@ -1,0 +1,19 @@
+<div class="table-wrapper">
+    <table class="table">
+        <thead class="thead-dark"> 
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">email</th>
+            <th scope="col">password</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td><a [routerLink]="['/admin/user/' + user.id]">{{user.id}}</a></td>
+            <td><a [routerLink]="['/admin/user/' + user.id]">{{user.email}}</a></td>
+            <td><a [routerLink]="['/admin/user/' + user.id]">{{user.password}}</a></td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>

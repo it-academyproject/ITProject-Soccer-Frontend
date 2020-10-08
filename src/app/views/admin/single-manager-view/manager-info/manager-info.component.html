@@ -1,0 +1,54 @@
+<div class="manager-info">
+    <form class="form-inline align-items-start my-2 my-lg-0" [formGroup] = "formularioAdminManager" (ngSubmit)="processForm()">
+        <div class="left-column w-50">
+            <h2 class="mb-3">Manager Info</h2>
+            <div class="field form-group mb-3">          
+                <input class="input form-control w-100 mr-sm-2" type="email" name="email" formControlName="email" required placeholder="Email" [(ngModel)]="email">
+                <!-- <span class="text-danger" *ngIf="this.formularioAdminManager.get('email').errors?.required">
+                    (The username field can't be empty)
+                </span>
+                <span *ngIf="this.formularioAdminManager.get('email').errors?.email">
+                (Email is not valid)
+            </span> -->
+            </div>
+        
+            <div class="field form-group mb-3">
+                <input class="input form-control mr-sm-2 w-100" type="password" name="password" formControlName="password" required placeholder="Password" [(ngModel)]="password">
+                <!-- <span class="text-danger" *ngIf="this.formularioAdminManager.get('password').errors?.required">
+                    (The password field can't be empty)
+                </span> -->
+            </div>
+            
+            <div class="field form-group mb-3">
+                <input class="input form-control mr-sm-2 w-100" type="text" name="team_name" formControlName="team_name" required placeholder="Team Name" [(ngModel)]="team_name">
+                <!-- <span class="text-danger" *ngIf="this.formularioAdminManager.get('team_name').errors?.required">
+                    (The password field can't be empty)
+                </span> -->
+            </div>
+        </div>
+
+        <div class="right-column w-50 ">
+            <h2 class="mb-3 ml-sm-2">Players</h2>
+
+            <!-- <select class="w-100 ml-sm-2 p-2" name="players" ngModel multiple>
+                <option class="mb-1" *ngFor="let player of players" [ngValue]="player">
+                    {{ player }}
+                </option>
+            </select>  -->
+
+            <select class="w-100 ml-sm-2 p-2 form-control" #select multiple (change)="change($event.target.options)">
+                <option *ngFor="let item of myOptions" [value]="item.id">
+                  {{item.name}}
+                </option>
+              </select>
+        </div>
+
+        <div class="buttons mt-3 w-100 d-flex align-items-center justify-content-center">
+            <button type="submit" class="btn btn-outline-warning mr-sm-2 col-5">Create/Update</button>
+            <button class="btn btn-outline-warning ml-sm-2 col-5">Delete</button>
+        </div>
+    </form>
+
+    {{resultado}}
+
+</div>

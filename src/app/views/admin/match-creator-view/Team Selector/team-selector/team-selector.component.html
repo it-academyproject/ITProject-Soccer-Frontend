@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center">
+        <div class="col-5 justify-content-center">
+            <img src="/assets/icons/emblem_purple.png" class="img-fluid mx-auto" />
+            <select [(ngModel)]="teamLocal" (ngModelChange)='passTeams(teamLocal, teamVisitor)' class="custom-select">
+            <option>Select Local Team</option>
+            <ng-container *ngFor="let team of teams">
+            <option *ngIf="(team.id != teamVisitor)" [ngValue]='team.id'>
+              {{ team.name }}
+            </option>
+          </ng-container>
+          </select>
+
+
+        </div>
+        <div class="col-1 d-flex align-items-center justify-content-center">
+            <h1 class="font-weight-bold">VS</h1>
+        </div>
+        <div class="col-5 justify-content-center">
+            <img src="/assets/icons/emblem_yellow.png" class="img-fluid  mx-auto" />
+            <select [(ngModel)]="teamVisitor" (ngModelChange)='passTeams(teamLocal, teamVisitor)' class="custom-select">
+          <option>Select Visitor Team</option>
+          <ng-container *ngFor="let team of teams">
+          <option *ngIf="(team.id != teamLocal)" [ngValue]='team.id'>
+            {{ team.name}}
+          </option>
+        </ng-container>  
+        </select>
+        </div>
+    </div>
+</div>

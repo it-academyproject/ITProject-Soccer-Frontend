@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'app-landing-header',
+  templateUrl: './landing-header.component.html',
+  styleUrls: ['./landing-header.component.css']
 })
-export class HeaderComponent implements OnInit {
+
+export class LandingHeaderComponent implements OnInit {
 
   username: string;
   password: string;

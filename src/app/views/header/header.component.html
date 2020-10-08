@@ -1,0 +1,13 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#" [routerLink]="['admin/players/']"><img src="assets/icons/logoFA_White.png" width="40" height="40" alt="">Football <span class="academy">Academy</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <app-navbar class="row w-100 d-flex pl-5 pl-lg-0 flex-column flex-lg-row justify-content-end" *ngIf="player"></app-navbar>
+            <app-admin-navbar class="row w-100 d-flex pl-5 pl-lg-0 flex-column flex-lg-row justify-content-end" *ngIf="admin"></app-admin-navbar>
+        </div>
+    </nav>
+</header>

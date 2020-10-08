@@ -1,0 +1,21 @@
+<div class="container mt-5 mb-5">
+
+    <div class="row justify-content-center">
+        <div class=" col-12 col-lg-6 bg-white justify-content-center my-auto">
+            <div class="alert alert-warning mt-2" role="alert" *ngIf='(error !="")'>
+                {{error}}
+            </div>
+            <h3 class="text-center mt-4">Match Creator</h3>
+            <div>
+                <app-team-selector (enviar)='teamsSelected=$event'></app-team-selector>
+            </div>
+
+
+            <h5 class="text-center mt-3">Day of the Match:</h5>
+            <input #dateInput class=" text-center form-control w-50 my-1 mx-auto" type="date" id="start" name="trip-start" placeholder="yyyy-mm-dd" min="1900-01-01" max="2023-12-31" />
+            <!-- <input class=" text-center form-control w-50 my-1 mx-auto" type="date" id="start" name="trip-start" placeholder="year-month-day" min="2021-01-01" max="2023-12-31" [ngModel]="matchDate" (ngModelChange)="getDate($event)" /> -->
+            <a class="btn btn-warning w-100 my-3" (click)="getDate(dateInput.value)">Create Match</a>
+
+        </div>
+    </div>
+</div>

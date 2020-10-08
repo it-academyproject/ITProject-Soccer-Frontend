@@ -1,0 +1,31 @@
+.btn {
+  background: #fffdf9;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #fffdf9e0;
+}
+
+.collapse {
+  padding: 0;
+}
+
+.collapse a {
+  color: black;
+  text-decoration: none;
+}
+
+.card {
+  margin-top: 5px;
+  padding: 5px;
+}
+.card img {
+  width: 20%;
+  height: 20%;
+}
+
+.card:hover {
+  background: #fffdf9e0;
+  color: black;
+}
