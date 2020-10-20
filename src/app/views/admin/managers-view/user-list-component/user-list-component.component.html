@@ -5,6 +5,8 @@
             <th scope="col">id</th>
             <th scope="col">email</th>
             <th scope="col">typeUser</th>
+            <th scope="col">options</th>
+
           </tr>
         </thead>
         <tbody>
@@ -12,6 +14,7 @@
             <td><a [routerLink]="['/admin/user/' + user.id]">{{user.id}}</a></td>
             <td><a [routerLink]="['/admin/user/' + user.id]">{{user.email}}</a></td>
             <td><a [routerLink]="['/admin/user/' + user.id]">{{user.typeUser}}</a></td>
+            <td><a [routerLink]="['/admin/user/' + user.id]"><img src="/assets/Images/trash.png" /></a></td>
           </tr>
           
         </tbody>
