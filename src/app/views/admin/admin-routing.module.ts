@@ -8,6 +8,7 @@ import { ManagersViewComponent } from './managers-view/managers-view.component';
 import { SingleManagerViewComponent } from './single-manager-view/single-manager-view.component';
 import { MatchCreatorViewComponent } from './match-creator-view/match-creator-view.component';
 import { PlayerCreatorViewComponent } from './player-creator-view/player-creator-view.component';
+import { UserCreatorComponent } from './user-creator/user-creator.component';
 
 const routes: Routes = [
   { path: 'admin/players', component: PlayersViewComponent },
@@ -17,6 +18,8 @@ const routes: Routes = [
   { path: 'admin/user/:id', component: SingleManagerViewComponent },
   { path: 'admin/matchcreator', component: MatchCreatorViewComponent },
   { path: 'admin/playercreator/:id', component: PlayerCreatorViewComponent},
+  { path: 'admin/usercreator/:id', component: UserCreatorComponent},
+
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

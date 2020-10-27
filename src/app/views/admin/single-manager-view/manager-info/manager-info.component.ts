@@ -1,16 +1,22 @@
 import { Component, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ManagersService } from './../../Managers/managers.service';
+import { Manager } from '../../Managers/managers.service';
 import {ActivatedRoute} from '@angular/router';
 import { Subscription } from 'rxjs';
-
+import { UserListService } from '../../../../services/userlist.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-manager-info',
   templateUrl: './manager-info.component.html',
   styleUrls: ['./manager-info.component.css']
 })
+
 export class ManagerInfoComponent implements OnInit {
+  users: Manager[];
+  user: any = {};
+  id: number;
   private routeSub: Subscription;
 
   @ViewChild('select') selectElRef;
@@ -25,15 +31,18 @@ export class ManagerInfoComponent implements OnInit {
   idRuta = null;
   selectedIds = ['1','2'];
 
-  constructor(private managersService: ManagersService, private route: ActivatedRoute) { }
-
+  constructor(
+    private route: ActivatedRoute,
+    private userlistService: UserListService,
+    private managersService: ManagersService,
+    private location: Location
+  ) {}
 
   ngOnInit(): void {
-    this.managers = this.managersService.getManagers();
+    this.getUser();
     this.routeSub = this.route.params.subscribe(params => {
-      this.idRuta =  parseInt(params['id']);
+    this.idRuta =  parseInt(params['id']);
     });
-
     this.managers.forEach(item => {
       if(item.id === this.idRuta) {
         this.myManager = item;
@@ -75,19 +84,25 @@ export class ManagerInfoComponent implements OnInit {
    * Process the form we have. Send to whatever backend
    * Only alerting for now
    */
-  processForm() {
-    if (this.formularioAdminManager.valid) {
 
-      // console.log(this.formularioAdminManager.controls)
-      // let playersSelected: String[] = this.formularioAdminManager.controls['players'].id;
-      // for (let i=0; i < playersSelected.length; i++) {
-      //   this.resultado = "Player: " + playersSelected[i];
-      // } 
-      const allInfo = `Username: ${this.email}. Pwd: ${this.password}. Team Name: ${this.team_name} . ${this.selectedIds}`;
-      this.resultado = allInfo; 
-    } else {
-      this.resultado = "Hay datos inválidos en el formulario";
-    }
+  getUser(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.userlistService.getUser(id)
+      .subscribe(user => this.user = user);
+  }
+  goBack(): void {
+    this.location.back();
+  }
+  updateUser(): void {
+    this.userlistService.updateUser(this.user)
+      .subscribe(() => this.goBack());
   }
 
-}
+  deleteUser(id: number){
+    const ok = confirm(`are you sure you want to delete ${this.user.id}?`)
+    if(ok == true){
+      this.userlistService.deleteUser( id ).subscribe();
+    }
+  }}
+
+

@@ -6,7 +6,7 @@ export class ManagersService {
   private managers: Manager[] = [
     {
       id: 1,
-      typeUser: 'admin',
+      type_user: 'admin',
       email: 'admin1@managers.com',
       password: 'password123',
       team_name: 'My Team Name',
@@ -20,7 +20,7 @@ export class ManagersService {
     },
     {
       id: 2,
-      typeUser: 'manager',
+      type_user: 'manager',
       email: 'manager2@managers.com',
       password: 'password123',
       team_name: 'My Team Name 2',
@@ -34,7 +34,7 @@ export class ManagersService {
     },
     {
       id: 3,
-      typeUser: 'manager',
+      type_user: 'manager',
       email: 'manager3@managers.com',
       password: 'password123',
       team_name: 'My Team Name 3',
@@ -48,7 +48,7 @@ export class ManagersService {
     },
     {
       id: 4,
-      typeUser: 'manager',
+      type_user: 'manager',
       email: 'manager4@managers.com',
       password: 'password123',
       team_name: 'My Team Name 4',
@@ -63,7 +63,7 @@ export class ManagersService {
     },
     {
       id: 5,
-      typeUser: 'manager',
+      type_user: 'manager',
       email: 'manager5@managers.com',
       password: 'password123',
       team_name: 'My Team Name 5',
@@ -77,7 +77,7 @@ export class ManagersService {
     },
     {
       id: 6,
-      typeUser: 'manager',
+      type_user: 'manager',
       email: 'manager6@managers.com',
       password: 'password123',
       team_name: 'My Team Name 6',
@@ -91,7 +91,7 @@ export class ManagersService {
     },
     {
       id: 7,
-      typeUser: 'manager',
+      type_user: 'manager',
       email: 'manager7@managers.com',
       password: 'password123',
       team_name: 'My Team Name 7',
@@ -105,7 +105,7 @@ export class ManagersService {
     },
     {
       id: 8,
-      typeUser: 'manager',
+      type_user: 'manager',
       email: 'manager8@managers.com',
       password: 'password123',
       team_name: 'My Team Name 8',
@@ -119,7 +119,7 @@ export class ManagersService {
     },
     {
       id: 9,
-      typeUser: 'manager',
+      type_user: 'manager',
       email: 'manager9@managers.com',
       password: 'password123',
       team_name: 'My Team Name 9',
@@ -133,7 +133,7 @@ export class ManagersService {
     },
     {
       id: 10,
-      typeUser: 'manager',
+      type_user: 'manager',
       email: 'manager10@managers.com',
       password: 'password123',
       team_name: 'My Team Name 10',
@@ -147,7 +147,7 @@ export class ManagersService {
     },
     {
       id: 11,
-      typeUser: 'manager',
+      type_user: 'manager',
       email: 'manager11@managers.com',
       password: 'password123',
       team_name: 'My Team Name 11',
@@ -161,7 +161,7 @@ export class ManagersService {
     },
     {
       id: 12,
-      typeUser: 'manager',
+      type_user: 'manager',
       email: 'manager12@managers.com',
       password: 'password123',
       team_name: 'My Team Name 4',
@@ -181,7 +181,7 @@ export class ManagersService {
 }
 export interface Manager {
   id: number;
-  typeUser: string;
+  type_user: string;
   email: string;
   password: string;
   team_name: string;

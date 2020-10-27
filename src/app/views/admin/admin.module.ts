@@ -16,6 +16,8 @@ import { SinglePlayerViewComponent } from './single-player-view/single-player-vi
 import { MatchCreatorViewComponent } from './match-creator-view/match-creator-view.component';
 import { TeamSelectorComponent } from './match-creator-view/Team Selector/team-selector/team-selector.component';
 import { PlayerCreatorViewComponent } from './player-creator-view/player-creator-view.component';
+import { UserCreatorComponent } from './user-creator/user-creator.component';
+
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { PlayerCreatorViewComponent } from './player-creator-view/player-creator
     MatchCreatorViewComponent,
     TeamSelectorComponent,
     PlayerCreatorViewComponent,
+    UserCreatorComponent
   ],
   imports: [
     CommonModule,
