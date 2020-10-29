@@ -45,7 +45,8 @@ getUsers(): Observable<User> {
 /** DELETE: delete a user from the server */
 deleteUser(user: User): Observable<User> {
   const url = `${this.usersUrl}/${user.id}`;
-  return this.http.delete<User>(url);
+
+  return this.http.delete<User>(url, this.httpOptions);
 }
 
 /** PUT: update a user on the server */
