@@ -3,6 +3,8 @@ import { ManagersService } from './../../Managers/managers.service';
 import { UserListService } from '../../../../services/userlist.service';
 import { Observable, of } from 'rxjs';
 import { Manager } from '../../Managers/managers.service';
+import { User } from '../../../../modules/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list-component',
@@ -10,11 +12,12 @@ import { Manager } from '../../Managers/managers.service';
   styleUrls: ['./user-list-component.component.css']
 })
 export class UserListComponentComponent implements OnInit {
-
-  headers = ['User id', 'Email','User type'];
+  headers = ['Email','User type'];
   user: any = {};
+  usersData: any;
 
-constructor(private userListService: UserListService) {
+  constructor(private userListService: UserListService,
+            private router:Router) {
       this.userListService.getUsers().subscribe(
         (data: any) => {
           console.log(data);
@@ -29,7 +32,7 @@ constructor(private userListService: UserListService) {
       console.log(this.user);
     }
   
-    deleteUser(id){
+    deleteUser(id: string){
       const ok = confirm(`Are you sure you want to delete a user?`);
       if (ok === true){
         this.userListService.deleteUser( id ).subscribe();

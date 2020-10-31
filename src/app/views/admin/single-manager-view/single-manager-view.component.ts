@@ -16,8 +16,7 @@ export class SingleManagerViewComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private userListService: UserListService,
-    private Route: Router
-
+    private route: Router
   ) {
     this.activatedRoute.params.subscribe((params) => {
       this.getUser(params['id']);
@@ -26,7 +25,7 @@ export class SingleManagerViewComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  getUser(id){
+  getUser(id: string){
     this.userListService.getUser(id).subscribe(
       (data: any) => {
         this.user = data;
@@ -34,4 +33,12 @@ export class SingleManagerViewComponent implements OnInit {
       }
     );
       }
+      
+deleteUser(id:string){
+  const ok = confirm(`Are you sure you want to delete ${this.user.email}?`)
+  if (ok === true){
+    this.userListService.deleteUser( id ).subscribe();
+    this.route.navigate(['/admin/users/']);
+  }
+}
 }

@@ -10,8 +10,9 @@ import { User } from '../../../modules/user';
   styleUrls: ['./user-ceator-view.component.css']
 })
 export class UserCeatorViewComponent implements OnInit {
+  user:  any = {};
+  id: string;
 
-  user: User;
 
   constructor( private userListService: UserListService,
                private route: ActivatedRoute) { }
@@ -35,11 +36,12 @@ export class UserCeatorViewComponent implements OnInit {
       return;
     }
 
-    if ( this.user.id ){
+    if ( this.user.id){
       const ok = confirm(`Are you sure you want to modificate this user?`);
       if (ok === true){
-          this.userListService.updateUser( this.user ).subscribe(resp => {
+          this.userListService.updateUser( this.user.type_user).subscribe(resp => {
             console.log(resp);
+            this.user = resp;
           });
         }
 
@@ -53,4 +55,3 @@ export class UserCeatorViewComponent implements OnInit {
   }
 
 }
-

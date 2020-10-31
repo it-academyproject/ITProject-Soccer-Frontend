@@ -18,7 +18,7 @@ export class ManagerInfoComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private userListService: UserListService,
-    private Route: Router
+    private route: Router
   ) {
     this.activatedRoute.params.subscribe((params) => {
       this.getUser(params['id']);
@@ -27,7 +27,7 @@ export class ManagerInfoComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  getUser(id){
+  getUser(id: string){
     this.userListService.getUser(id).subscribe(
       (data: any) => {
         this.user = data;
@@ -36,11 +36,11 @@ export class ManagerInfoComponent implements OnInit {
     );
       }
       
-deleteUser(id){
-  const ok = confirm(`Are you sure you want to delete ${this.user.id}?`)
+deleteUser(id: string){
+  const ok = confirm(`Are you sure you want to delete ${this.user.email}?`)
   if (ok === true){
     this.userListService.deleteUser( id ).subscribe();
-    this.Route.navigate(['/admin/users']);
+    this.route.navigate(['/admin/users/']);
   }
 }
 }

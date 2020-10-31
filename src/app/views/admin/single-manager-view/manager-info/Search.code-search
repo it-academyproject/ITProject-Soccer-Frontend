@@ -1,0 +1,47 @@
+# Query: getUser
+# ContextLines: 1
+
+11 results - 5 files
+
+src\app\services\userlist.service.ts:
+  20  
+  21:   getUsers(){
+  22      return this.http.get(`${this.url}/users`)
+
+  24  
+  25:   getUseri(id: string) {
+  26      return this.http.get(`${this.url}/users/managers/${id}`);
+
+src\app\views\admin\managers-view\user-list-component\user-list-component.component.ts:
+  20              private router:Router) {
+  21:       this.userListService.getUsers().subscribe(
+  22          (data: any) => {
+
+  30      ngOnInit(): void {
+  31:       this.user = this.userListService.getUsers();
+  32        console.log(this.user);
+
+src\app\views\admin\single-manager-view\single-manager-view.component.ts:
+  21      this.activatedRoute.params.subscribe((params) => {
+  22:       this.getUseri(params['id']);
+  23      });
+
+  27  
+  28:   getUseri(id: string){
+  29:     this.userListService.getUseri(id).subscribe(
+  30        (data: any) => {
+
+src\app\views\admin\single-manager-view\manager-info\manager-info.component.ts:
+  23      this.activatedRoute.params.subscribe((params) => {
+  24:       this.getUseri(params['id']);
+  25      });
+
+  29  
+  30:   getUseri(id: string){
+  31:     this.userListService.getUseri(id).subscribe(
+  32        (data: any) => {
+
+src\app\views\admin\user-ceator-view\user-ceator-view.component.ts:
+  22      if ( id !== 'new' ) {
+  23:       this.userListService.getUseri( id )
+  24          .subscribe( (resp: User) => {
