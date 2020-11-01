@@ -15,7 +15,13 @@ export class MatchCreatorViewComponent {
   matchDate: Date;
   formatedMatchDate: string;
   error = '';
+ /*  Date Format */
   today = new Date();
+  todayDateNew;
+  dateFormat;
+  dateFormatNew;
+
+
   constructor(
     private matchCreatorService: MatchcreatorService,
     private datePipe: DatePipe
@@ -61,14 +67,13 @@ export class MatchCreatorViewComponent {
       console.log('->err:" + e');
     }
   }
-  /* ngOnInit(): void {
-    const date = new Date();
-    const dia = date.getDate();
-    const mes = date.getMonth();
-    const yyy = date.getFullYear();
-    const todayDate = dia + '/' + (mes + 1) + '/' + yyy;
-    let inputValue = (document.getElementById('start') as HTMLInputElement).defaultValue;
-    inputValue = todayDate;
-    console.log(inputValue);
-  } */
+  ngOnInit(): void {
+    this.todayDate();
+  }
+  todayDate(){
+    this.todayDateNew = this.today.toLocaleDateString();
+    this.dateFormat = this.todayDateNew.split('/');
+    this.dateFormatNew = this.dateFormat[2] + '-' + this.dateFormat[1] + '-' + this.dateFormat[0];
+    console.log(this.dateFormatNew);
+  }
 }

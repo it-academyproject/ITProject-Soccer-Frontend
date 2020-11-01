@@ -1,9 +1,20 @@
 <div class="container-fluid">
-    <div class="row justify-content-center mt-5">
-        <div class="col-8">
+    <div *ngIf="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> Is not posible to delete this player.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div *ngIf="success" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Success!</strong> The player has been deleted.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="row justify-content-center ml-5 mb-5 mr-5 mt-5">
 
+        <div class="col-md-9 order-2 mt-2">
             <table class="table table-hover table-light">
-
                 <thead>
                     <tr class="h3">
                         <th *ngFor="let head of headers">
@@ -31,10 +42,10 @@
                 </div>
             </table>
         </div>
-        <div class="col-2">
+        <div class="col-md-2 order-1 order-md-3 mt-2">
             <button class="btn btn-warning btn-block" routerLink="/admin/playercreator/new">
-        New Player
-      </button>
+            New Player
+            </button>
         </div>
     </div>
 </div>

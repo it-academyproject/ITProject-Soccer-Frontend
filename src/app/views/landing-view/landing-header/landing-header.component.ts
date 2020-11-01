@@ -32,8 +32,10 @@ export class LandingHeaderComponent implements OnInit {
     this.login.onLoginUser(form).subscribe(data => {
       this.login.setUser(data);
 
-      if (localStorage.getItem('currentUser').includes('type_user')){
+      if (localStorage.getItem('currentUser').includes('MANAGER')){
         this.router.navigate(['/team/']);
+      }else if (localStorage.getItem('currentUser').includes('ADMIN')){
+        this.router.navigate(['/admin/matchcreator']);
       }else{
         this.resultado = 'Oops! the email / password is not correct';
       }

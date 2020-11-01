@@ -3,6 +3,7 @@ import { PlayerListService } from '../../../services/player-list.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { PlayerModel } from '../../../modules/player-model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-player-creator-view',
@@ -14,7 +15,8 @@ export class PlayerCreatorViewComponent implements OnInit {
   player: PlayerModel = new PlayerModel();
 
   constructor( private playerListService: PlayerListService,
-               private route: ActivatedRoute) { }
+               private route: ActivatedRoute,
+               private router: Router) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -48,6 +50,7 @@ export class PlayerCreatorViewComponent implements OnInit {
       this.playerListService.newPlayer( this.player).subscribe(resp => {
         console.log(resp);
         this.player = resp;
+        this.router.navigate(['/admin/players']);
       });
     }
   }
