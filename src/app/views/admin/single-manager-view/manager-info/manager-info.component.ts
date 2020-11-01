@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { FormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormsModule, FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 import { ManagersService } from './../../Managers/managers.service';
 import { ActivatedRoute, Routes } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -35,7 +35,6 @@ export class ManagerInfoComponent implements OnInit {
       }
     );
       }
-      
 deleteUser(id: string){
   const ok = confirm(`Are you sure you want to delete ${this.user.email}?`)
   if (ok === true){

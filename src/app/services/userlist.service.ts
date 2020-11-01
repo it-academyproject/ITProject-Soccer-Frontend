@@ -33,9 +33,13 @@ getUsers(): Observable<any> {
  //////// Save methods //////////
 
   /** POST: add a new user to the server */
-  newUser(user: User): Observable<User> {
-    const url = `${this.usersUrl}/admin`;
-    return this.http.post<User>(this.usersUrl, user, this.httpOptions);
+  newUser(user: User){
+
+    return this.http.post(`${this.usersUrl}`, user)
+          .pipe(map((resp: any) => {
+            user.id = resp.id;
+            return user;
+          }));
   }
 
 /** DELETE: delete a user from the server */

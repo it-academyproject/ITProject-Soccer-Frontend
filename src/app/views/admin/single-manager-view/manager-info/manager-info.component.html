@@ -5,7 +5,11 @@
                     </div>
                     <div class="col-6 text-white">
                         <h3>{{ user.email }}</h3>
+                        <hr>
                         <p><span class="font-weight-bold">User type: </span> {{ user.type_user }}</p>
+                        <hr>
+                        <p><span class="font-weight-bold">Team: </span> {{ user.team_name }}</p>
+
             <button class="btn btn-warning btn-sm m-4" [routerLink]="['/admin/usercreator/', user.id]">
         Update
       </button>
@@ -13,4 +17,35 @@
         Delete
       </button>
         </div>
+    
+<!-----<div class="container-fluid">
+    <div class="row justify-content-center mt-5">
+
+        <form (ngSubmit)="save( f )" #f="ngForm">
+            <h3 class="mb-3 text-white">{{user.email}}</h3>
+            <div class="col text-white">
+                <div class="form-group">
+                    <label for="select type_user">User type</label>
+                    <select class="form-control mr-sm-2 w-100" id="type_userFormControlSelect1">
+                      <option>manager</option>
+                      <option>administrador</option>
+                    </select>
+                </div>
+                <div class="field form-group mb-3">
+                    <label for="emailFormControlInput1">Password</label>
+                </div>
+                <div class="field form-group mb-3">
+                    <label for="teamFormControlInput1" >Team name</label>
+                    <input class="input form-control mr-sm-2 w-100" type="text" name="team_name" formControlName="team_name" required placeholder="Team Name" [(ngModel)]="user.team_name">
+                </div>
+            <div class="buttons mt-3 w-100 d-flex align-items-center justify-content-center">
+                <button type= "submit" class="btn btn-warning m-4" (click)="updateUser()">Update</button>
+                <button class="btn btn-warning m-4" (click)="deleteUser(user.id)">Delete</button>            
+
+                </div>
+            </div>
+            
+        </form>
+    
     </div>
+</div>--->
