@@ -52,4 +52,12 @@ deleteUser(id: string): Observable<User> {
 updateUser(user: User): Observable<typeof user> {
   const url = `${this.usersUrl}/type/${user.id}`;
   return this.http.put<User>(url, user, this.httpOptions)
-}} 
+}
+changePassword(user: User): Observable<any> {
+  const url = `${this.usersUrl}/password/${user.id}`;
+  return this.http.put<User>(url, user, this.httpOptions)
+
+} }
+
+
+

@@ -30,7 +30,7 @@ export class UserCeatorViewComponent implements OnInit {
   }
 
 
-  save(form: NgForm){
+  save(form: NgForm): void{
     if (form.invalid) {
       console.log('form invalid');
       return;
@@ -42,15 +42,15 @@ export class UserCeatorViewComponent implements OnInit {
           this.userListService.updateUser( this.user ).subscribe(resp => {
             console.log(resp);
           });
+          this.userListService.changePassword( this.user).subscribe(resp => {
+            console.log(resp);
+          });
         }
-
-
-    }else{
+      }
+      else{
       this.userListService.newUser( this.user).subscribe(resp => {
         console.log(resp);
         this.user = resp;
       });
-    }
+    }}
   }
-
-}
