@@ -5,21 +5,25 @@
         </div>
         <hr>
 
-        <div class="row row-cols-1 row-cols-md-3 form-inline pl-3">
+        <div class="row row-cols-1 row-cols-md-3 form-inline px-3">
 
 
             <div class="form-group col col-md-4 p-0 ">
-                <label class="font-weight-bold pr-5" for="max-age ">Max-age</label>
-                <select class="form-control col mr-3" id="max-age ">
-                              <option *ngFor="let year of maxYears ">{{ year }}</option>
-                        </select>
+
+                <!-- Max Age -->
+                <label class="font-weight-bold pr-5" for="max-age">Max-age</label>
+                <select #maxAge (change)="setMaxAge( maxAge.value)" class="form-control col mr-3" id="max-age">
+                    <option  *ngFor="let year of maxYears" >{{ year }}</option>
+                </select>
             </div>
 
 
             <div class="form-group col col-md-4 p-0">
 
+                <!-- MinAge -->
+
                 <label class="font-weight-bold pr-5" for="min-age ">Min-age</label>
-                <select class="form-control col mr-3" id="min-age ">
+                <select #minAge (change)="setMinAge(minAge.value)" class="form-control col mr-3" id="min-age ">
                                 <option *ngFor="let year of minYears ">{{ year }}</option>
                           </select>
             </div>
@@ -36,31 +40,33 @@
 
 
         <div class="row row-cols-1 row-cols-md-3 mt-5 ">
+            <!-- Attack -->
             <div class="col col-md-4 ">
                 <div class="media">
                     <svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-lightning-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
                     </svg>
-                    <p class="col font-weight-bold d-flex justify-content-between">Attack <span class="d-flex text-right">{{rangeAttack}}</span></p>
+                    <p class="col font-weight-bold d-flex justify-content-between">Attack <span class="d-flex text-right">{{attack}}</span></p>
                 </div>
                 <hr class="mt-0">
                 <form>
-                    <input class="col slider mt-md-3" type="range" id="attack " name="attack " min="0" max="10" value="5" (input)="valueAttack($event) ">
+                    <input class="col slider mt-md-3" type="range" id="attack" name="attack" min="0" max="10" value="5" (input)="valueAttack($event)">
                 </form>
                 <div class="d-flex justify-content-between text-warning ">
                     <p>0</p>
                     <p>10</p>
                 </div>
-
-
             </div>
+
+
+            <!-- Defense -->
             <div class="col col-md-4">
                 <div class="media">
                     <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-shield-shaded" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M5.443 1.991a60.17 60.17 0 0 0-2.725.802.454.454 0 0 0-.315.366C1.87 7.056 3.1 9.9 4.567 11.773c.736.94 1.533 1.636 2.197 2.093.333.228.626.394.857.5.116.053.21.089.282.11A.73.73 0 0 0 8 14.5c.007-.001.038-.005.097-.023.072-.022.166-.058.282-.111.23-.106.525-.272.857-.5a10.197 10.197 0 0 0 2.197-2.093C12.9 9.9 14.13 7.056 13.597 3.159a.454.454 0 0 0-.315-.366c-.626-.2-1.682-.526-2.725-.802C9.491 1.71 8.51 1.5 8 1.5c-.51 0-1.49.21-2.557.491zm-.256-.966C6.23.749 7.337.5 8 .5c.662 0 1.77.249 2.813.525a61.09 61.09 0 0 1 2.772.815c.528.168.926.623 1.003 1.184.573 4.197-.756 7.307-2.367 9.365a11.191 11.191 0 0 1-2.418 2.3 6.942 6.942 0 0 1-1.007.586c-.27.124-.558.225-.796.225s-.526-.101-.796-.225a6.908 6.908 0 0 1-1.007-.586 11.192 11.192 0 0 1-2.417-2.3C2.167 10.331.839 7.221 1.412 3.024A1.454 1.454 0 0 1 2.415 1.84a61.11 61.11 0 0 1 2.772-.815z"/>
                         <path d="M8 2.25c.909 0 3.188.685 4.254 1.022a.94.94 0 0 1 .656.773c.814 6.424-4.13 9.452-4.91 9.452V2.25z"/>
                       </svg>
-                    <p class="col font-weight-bold d-flex justify-content-between">Defense <span class="d-flex text-right">{{rangeDefense}}</span>
+                    <p class="col font-weight-bold d-flex justify-content-between">Defense <span class="d-flex text-right">{{defense}}</span>
                     </p>
                 </div>
                 <hr class="mt-0">
@@ -75,11 +81,12 @@
 
         </div>
 
-        <div class="row row-cols-1 row-cols-md-3 mt-5 ">
+        <!-- Pass -->
+        <div class="row row-cols-1 row-cols-md-3 mt-md-5 ">
             <div class="col col-md-4">
                 <div class="media">
                     <span class="material-icons" alt="pass">sports_soccer</span>
-                    <p class="col font-weight-bold d-flex justify-content-between"> Pass <span class="d-flex text-right">{{rangePass}}</span></p>
+                    <p class="col font-weight-bold d-flex justify-content-between"> Pass <span class="d-flex text-right">{{pass}}</span></p>
                 </div>
                 <hr class="mt-0">
                 <form>
@@ -91,10 +98,11 @@
                 </div>
             </div>
 
+            <!-- Keeper -->
             <div class="col col-md-4">
                 <div class="media">
                     <span class="material-icons" alt="keeper">pan_tool</span>
-                    <p class="col font-weight-bold d-flex justify-content-between">Keeper <span class="d-flex text-right">{{rangeKeeper}}</span></p>
+                    <p class="col font-weight-bold d-flex justify-content-between">Keeper <span class="d-flex text-right">{{keeper}}</span></p>
                 </div>
                 <hr class="mt-0">
                 <form>
@@ -107,10 +115,141 @@
             </div>
 
 
-            <div class="col col-md-3 my-5 my-md-0 d-flex align-items-md-end mx-md-auto ">
-                <button type="button " class="btn btn-warning w-100 mb-3 ">Search</button>
+            <!-- Search button -->
+            <div class="col col-md-3 my-3 my-md-0 d-flex align-items-md-end mx-md-auto ">
+                <button (click)="search(maxAge.value, minAge.value, defense, attack, keeper, pass)" type="button" class="btn btn-warning w-100 mb-3 ">Search</button>
             </div>
         </div>
 
     </div>
+</div>
+
+
+
+
+
+<!-- Filter results. -->
+
+
+<div class="container mt-5 mx-3">
+    <div *ngFor="let player of players; let i = index" class="mx-auto">
+
+        <!-- Player name and photo -->
+
+        <div class="row w-100 player-name mr-md-3 mt-5 order-0 d-flex justify-content-between">
+            <h4 class="text-warning mt-2">{{ player.player.name }} <span class="text-light ml-3"> {{ player.player.age }} years old</span> </h4>
+            <h5 class="text-light mt-md-2">Initial price: <span class="text-warning ml-md-5"> {{player.initialPrice }} € </span></h5>
+        </div>
+        <div class="row mt-3">
+            <div class="col-4 col-md-2 d-none d-md-inline">
+                <img [src]="player.img | noPlayerImage" alt="{{ player.name }}" class="market-player mx-md-auto d-block mt-3">
+            </div>
+
+            <!-- Prgress-bar column1 -->
+            <div class="col-12 col-md-3 text-light mt-3 order-2 order-md-1">
+
+                <!-- Attack -->
+                <div class="row mt-2">
+                    <div class="col-1 mr-2">
+                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-lightning-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+                    </svg>
+                    </div>
+
+                    <div class="col-10 my-auto">
+
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: {{player.player.attack}}%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soccer -->
+
+                <div class="row mt-3 mt-md-5">
+                    <div class="col-1 mr-2">
+                        <span class="material-icons text-light" alt="pass">sports_soccer</span>
+                    </div>
+
+                    <div class="col-10 my-auto">
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: {{player.player.attack.pass}}%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Prgress-bar column2 -->
+            <div class="col col-md-3 text-light mt-3 order-3 order-md-2">
+
+                <div class="row mt-2">
+
+                    <!-- Defense -->
+                    <div class="col-1 mr-2">
+                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-shield-shaded" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M5.443 1.991a60.17 60.17 0 0 0-2.725.802.454.454 0 0 0-.315.366C1.87 7.056 3.1 9.9 4.567 11.773c.736.94 1.533 1.636 2.197 2.093.333.228.626.394.857.5.116.053.21.089.282.11A.73.73 0 0 0 8 14.5c.007-.001.038-.005.097-.023.072-.022.166-.058.282-.111.23-.106.525-.272.857-.5a10.197 10.197 0 0 0 2.197-2.093C12.9 9.9 14.13 7.056 13.597 3.159a.454.454 0 0 0-.315-.366c-.626-.2-1.682-.526-2.725-.802C9.491 1.71 8.51 1.5 8 1.5c-.51 0-1.49.21-2.557.491zm-.256-.966C6.23.749 7.337.5 8 .5c.662 0 1.77.249 2.813.525a61.09 61.09 0 0 1 2.772.815c.528.168.926.623 1.003 1.184.573 4.197-.756 7.307-2.367 9.365a11.191 11.191 0 0 1-2.418 2.3 6.942 6.942 0 0 1-1.007.586c-.27.124-.558.225-.796.225s-.526-.101-.796-.225a6.908 6.908 0 0 1-1.007-.586 11.192 11.192 0 0 1-2.417-2.3C2.167 10.331.839 7.221 1.412 3.024A1.454 1.454 0 0 1 2.415 1.84a61.11 61.11 0 0 1 2.772-.815z"/>
+                    <path d="M8 2.25c.909 0 3.188.685 4.254 1.022a.94.94 0 0 1 .656.773c.814 6.424-4.13 9.452-4.91 9.452V2.25z"/>
+                    </svg>
+                    </div>
+
+                    <div class="col-10 my-auto">
+
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: {{player.player.defense}}%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row mt-3 mt-md-5">
+                    <!-- Keeper -->
+                    <div class="col-1 mr-2">
+                        <span class="material-icons" alt="keeper">pan_tool</span>
+                    </div>
+
+                    <div class="col-10 my-auto">
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: {{player.player.keeper}}%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="col col-md-4 ml-0 my-md-4 order-1 order-md-3">
+                <!-- Bid value -->
+                <div class="media mb-3">
+                    <span class="material-icons text-light">attach_money</span>
+                    <form class="media col">
+                        <input class="input mr-3 col-6 col-md-6" type="number" id="bid" name="bid" placeholder="Bid value">
+                        <button type="submit col col-md-6" class="btn input p-0 w-100 mr-3 btn-warning">Bid now!</button>
+                    </form>
+                </div>
+                <!-- Team -->
+                <div class="row">
+                    <div class="col-1 mr-2 text-light">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-shield" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M5.443 1.991a60.17 60.17 0 0 0-2.725.802.454.454 0 0 0-.315.366C1.87 7.056 3.1 9.9 4.567 11.773c.736.94 1.533 1.636 2.197 2.093.333.228.626.394.857.5.116.053.21.089.282.11A.73.73 0 0 0 8 14.5c.007-.001.038-.005.097-.023.072-.022.166-.058.282-.111.23-.106.525-.272.857-.5a10.197 10.197 0 0 0 2.197-2.093C12.9 9.9 14.13 7.056 13.597 3.159a.454.454 0 0 0-.315-.366c-.626-.2-1.682-.526-2.725-.802C9.491 1.71 8.51 1.5 8 1.5c-.51 0-1.49.21-2.557.491zm-.256-.966C6.23.749 7.337.5 8 .5c.662 0 1.77.249 2.813.525a61.09 61.09 0 0 1 2.772.815c.528.168.926.623 1.003 1.184.573 4.197-.756 7.307-2.367 9.365a11.191 11.191 0 0 1-2.418 2.3 6.942 6.942 0 0 1-1.007.586c-.27.124-.558.225-.796.225s-.526-.101-.796-.225a6.908 6.908 0 0 1-1.007-.586 11.192 11.192 0 0 1-2.417-2.3C2.167 10.331.839 7.221 1.412 3.024A1.454 1.454 0 0 1 2.415 1.84a61.11 61.11 0 0 1 2.772-.815z"/>
+                      </svg>
+                    </div>
+                    <p class="text-warning font-weight-bold ml-3"> Team: <span class="text-light ml-3">{{player.player.team_id}}</span></p>
+                </div>
+
+                <!-- Time left -->
+                <div class="row">
+                    <div class="col-1 mr-2 text-light">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-stopwatch" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M6 .5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H9v1.07A7.001 7.001 0 0 1 8 16 7 7 0 0 1 7 2.07V1h-.5A.5.5 0 0 1 6 .5zM8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3zm0 2.1a.5.5 0 0 1 .5.5V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 0 1 .5-.5z"/>
+                      </svg>
+                    </div>
+                    <p class="text-warning font-weight-bold ml-3"> Limit time: <span class="text-light ml-3">{{player.limitDate | date: 'short'}}</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mb-5">
+
 </div>
