@@ -22,6 +22,7 @@ import { NoimagePipe } from '../../pipes/noimage.pipe';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserCeatorViewComponent } from './user-ceator-view/user-ceator-view.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatchCreatorViewComponent,
     TeamSelectorComponent,
     PlayerCreatorViewComponent,
+    UserCeatorViewComponent,
     NoimagePipe,
   ],
   imports: [

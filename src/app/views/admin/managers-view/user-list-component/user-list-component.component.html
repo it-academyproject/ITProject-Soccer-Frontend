@@ -1,19 +1,29 @@
-<div class="card-row">
-    <table class="table table-hover">
-        <thead> 
-          <tr>
-            <th scope="col">id</th>
-            <th scope="col">email</th>
-            <th scope="col">typeUser</th>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col">
+  <table class="table table-hover table-light">
+      <thead>
+          <tr class="h3">
+              <th *ngFor="let head of headers">
+                  {{ head }}
+              </th>
+              <th scope="col">Options</th>
           </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let user of users">
-            <td><a [routerLink]="['/admin/user/' + user.id]">{{user.id}}</a></td>
-            <td><a [routerLink]="['/admin/user/' + user.id]">{{user.email}}</a></td>
-            <td><a [routerLink]="['/admin/user/' + user.id]">{{user.typeUser}}</a></td>
+      </thead>
+      <tbody>
+          <tr *ngFor="let user of user; let i = index">
+              <td>
+                  {{ user.email }}
+              </td>
+              <td>
+                {{ user.type_user }}
+            </td>
+              <td>
+                  <a (click)="deleteUser(user.id)"><img src="/assets/Images/trash.png" style="cursor:pointer"/></a>
+                  <a [routerLink]="['/admin/user/', user.id]" class="pl-2"><img src="/assets/Images/lups.png" /></a>
+              </td>
           </tr>
-          
-        </tbody>
-      </table>
-    </div>
+      </tbody>
+  </table>
+</div>
+</div>
